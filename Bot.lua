@@ -8,7 +8,7 @@ local CLIENT = discordia.Client():useApplicationCommands()
 local function SendEmbed(message, filePath, Title, imagepath, Link)
     local file = io.open(filePath, "r")
     local fileContent = ""
-
+    
     if file then
         fileContent = file:read("*all")
         file:close()
@@ -70,24 +70,28 @@ CLIENT:on("slashCommand", function(interaction, command, args)
     end
 end)
 
-
 CLIENT:on('messageCreate', function(message)
     local content = message.content:lower()
-    local command = commands[content]
 
-    if command then
-        SendEmbed(message, command.filePath, command.title, command.imagePath, command.link)
-        print(content .. " has been run")
+    if string.sub(content, 1, 2) == "r?" then
+        local commandArgs = string.sub(content, 3):gsub("^%s+", "")
+
+        local command = commands[commandArgs]
+
+        if command then
+            SendEmbed(message, command.filePath, command.title, command.imagePath, command.link)
+            print(commandArgs .. " has been run")
+        end
     end
 end)
 
 CLIENT:on("messageCommand", function(interaction, command, message)
 
-  end)
-  
-  CLIENT:on("userCommand", function(interaction, command, member)
+end)
 
-  end)
+CLIENT:on("userCommand", function(interaction, command, member)
+
+end)
 
 local file2 = io.open("token.txt", "r")
 if not file2 then

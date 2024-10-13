@@ -9,7 +9,7 @@ MemoryStore:GetHashMap("Memory Store Section Name")
 
 MemoryStore:GetSortedMap("Memory Store Section Name")
 
-MemoryStore:GetQueue("Memory Store Section Name") -- TBD
+MemoryStore:GetQueue("Memory Store Section Name") 
 ```
 **Main Document**
 https://create.roblox.com/docs/cloud-services/memory-stores

@@ -1,15 +1,19 @@
 {
-    "r?memorystore": {
+    "memorystore": {
         "filePath": "TextBanks/MemStore.json",
         "title": "MemoryStore",
         "imagePath": "MemoryBank/MemStore.png",
         "link": "attachment://MemStore.png"
     },
-    "r?memorystore:gethashmap()": {
+    "memorystore:gethashmap()": {
         "filePath": "TextBanks/MemStoreHash.json",
         "title": "MemoryStore Hash Map"
     },
-    "r?memorystore:getsortedmap()": {
+    "memorystore:getqueue()": {
+        "filePath": "TextBanks/MemoryStoreQueue.json",
+        "title": "MemoryStore Que Map"
+    },
+    "memorystore:getsortedmap()": {
         "filePath": "TextBanks/MemStoreSort.json",
         "title": "MemoryStore Sorted Map"
     }

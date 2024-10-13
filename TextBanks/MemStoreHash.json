@@ -5,19 +5,19 @@ Here are the available methods for working with a memory store:
 ```lua
 local MemoryStore = game:GetService("MemoryStore")
 
-local HashMap = MemoryStore:GetHashMap("Example")
+local StoreMap = MemoryStore:GetHashMap("Example")
 
 -- METHODS BELOW
 
-HashMap:GetAsync("Key") -- Retrieves the data associated with the specified key.
+StoreMap:GetAsync("Key") -- Retrieves the data associated with the specified key.
 
-HashMap:ListItemsAsync(Number Per Page) -- Returns a memory store page that lets you iterate through items in the memory store.
+StoreMap:ListItemsAsync(Number Per Page) -- Returns a memory store page that lets you iterate through items in the memory store.
 
-HashMap:RemoveAsync("Key") -- Deletes the data associated with the specified key from the memory store.
+StoreMap:RemoveAsync("Key") -- Deletes the data associated with the specified key from the memory store.
 
-HashMap:SetAsync("Key", "Value", expiration) -- Stores a value in the memory store with an optional expiration time.
+StoreMap:SetAsync("Key", "Value", expiration) -- Stores a value in the memory store with an optional expiration time.
 
-HashMap:UpdateAsync("Key", "Value", expiration) -- Updates the value of an existing key, allowing for expiration updates as well.
+StoreMap:UpdateAsync("Key", "Value", expiration) -- Updates the value of an existing key, allowing for expiration updates as well.
 ```
 
 **Main Document**

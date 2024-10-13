@@ -1,0 +1,19 @@
+MemoryStore:GetQueue() method returns an object, which we'll call your memory store queue. This functions similarly to a sorted map, but with the added advantage of being ordered. Essentially, it allows you to queue data, which can be useful for systems like game lobbies.
+
+Below are the available methods for interacting with a memory store queue:
+
+```lua
+local MemoryStore = game:GetService("MemoryStore")
+local Queue = MemoryStore:GetQueue("Example")
+
+-- METHODS
+
+Queue:AddAsync(value, expiration, priority) -- Refer to the documentation for details, as this method is quite complex.
+
+Queue:ReadAsync(count, allOrNothing, waitTimeout) -- Refer to the documentation for details, as this method is quite complex.
+
+Queue:RemoveAsync(id) -- Refer to the documentation for details, as this method is quite complex.
+``` 
+
+**Main Document**
+https://create.roblox.com/docs/reference/engine/classes/MemoryStoreQueue

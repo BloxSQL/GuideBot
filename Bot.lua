@@ -1,6 +1,9 @@
 local discordia = require('discordia')
-local client = discordia.Client()
-local json = require('json') -- Make sure you have a JSON library
+local json = require('json')
+local DIC = require("discordia-interactions")
+local tools = require("discordia-slash").util.tools()
+local CLIENT = discordia.Client():useApplicationCommands()
+
 
 local function SendEmbed(message, filePath, Title, imagepath, Link)
     local file = io.open(filePath, "r")
@@ -32,7 +35,6 @@ local function SendEmbed(message, filePath, Title, imagepath, Link)
     }
 end
 
--- Load commands from JSON
 local function loadCommands()
     local file = io.open("commands.json", "r")
     local commands = {}
@@ -48,15 +50,28 @@ local function loadCommands()
     return commands
 end
 
--- Store the loaded commands
 local commands = loadCommands()
 
-client:on('ready', function()
-    print('Logged in as ' .. client.user.username)
-    client:setStatus("Coding in LUA")
+CLIENT:on('ready', function()
+    print('Logged in as ' .. CLIENT.user.username)
+    CLIENT:setStatus("Coding in LUA")
+
+    local slashCommand = tools.slashCommand("help", "Get help with the bot")
+
+    CLIENT:createGlobalApplicationCommand(slashCommand)
+  
+    CLIENT:info("Bot is ready and the 'hello' command has been registered!")
+  
 end)
 
-client:on('messageCreate', function(message)
+CLIENT:on("slashCommand", function(interaction, command, args)
+    if command.name == "help" then
+        interaction:reply("Please use R? to get started with Roblox coding. For further assistance, search for Roblox coding terms.", true)
+    end
+end)
+
+
+CLIENT:on('messageCreate', function(message)
     local content = message.content:lower()
     local command = commands[content]
 
@@ -66,6 +81,13 @@ client:on('messageCreate', function(message)
     end
 end)
 
+CLIENT:on("messageCommand", function(interaction, command, message)
+
+  end)
+  
+  CLIENT:on("userCommand", function(interaction, command, member)
+
+  end)
 
 local file2 = io.open("token.txt", "r")
 if not file2 then
@@ -75,4 +97,4 @@ end
 local content2 = file2:read("*all")
 file2:close()
 
-client:run('Bot ' .. content2)
+CLIENT:run('Bot ' .. content2)

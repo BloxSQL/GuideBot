@@ -1,0 +1,15 @@
+Memory Store functions similarly to a Datastore, but it differs in that it is temporary. It is typically used for basic storage, such as player statistics or lobby systems.
+
+The direct methods for Memory Store are...
+
+```lua
+local MemoryStore = game:GetService("MemoryStore")
+
+MemoryStore:GetHashMap("Memory Store Section Name")
+
+MemoryStore:GetSortedMap("Memory Store Section Name")
+
+MemoryStore:GetQueue("Memory Store Section Name") -- TBD
+```
+**Main Document**
+https://create.roblox.com/docs/cloud-services/memory-stores

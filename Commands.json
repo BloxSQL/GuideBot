@@ -1,0 +1,16 @@
+{
+    "r?memorystore": {
+        "filePath": "TextBanks/MemStore.json",
+        "title": "MemoryStore",
+        "imagePath": "MemoryBank/MemStore.png",
+        "link": "attachment://MemStore.png"
+    },
+    "r?memorystore:gethashmap()": {
+        "filePath": "TextBanks/MemStoreHash.json",
+        "title": "MemoryStore Hash Map"
+    },
+    "r?memorystore:getsortedmap()": {
+        "filePath": "TextBanks/MemStoreSort.json",
+        "title": "MemoryStore Sorted Map"
+    }
+}

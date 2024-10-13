@@ -1,0 +1,24 @@
+The `MemoryStore:GetHashMap()` method returns an object that we'll refer to as your memory store section. This object allows you to perform various operations on the data stored within the memory store.
+
+Here are the available methods for working with a memory store:
+
+```lua
+local MemoryStore = game:GetService("MemoryStore")
+
+local HashMap = MemoryStore:GetHashMap("Example")
+
+-- METHODS BELOW
+
+HashMap:GetAsync("Key") -- Retrieves the data associated with the specified key.
+
+HashMap:ListItemsAsync(Number Per Page) -- Returns a memory store page that lets you iterate through items in the memory store.
+
+HashMap:RemoveAsync("Key") -- Deletes the data associated with the specified key from the memory store.
+
+HashMap:SetAsync("Key", "Value", expiration) -- Stores a value in the memory store with an optional expiration time.
+
+HashMap:UpdateAsync("Key", "Value", expiration) -- Updates the value of an existing key, allowing for expiration updates as well.
+```
+
+**Main Document**
+https://create.roblox.com/docs/reference/engine/classes/MemoryStoreHashMap
